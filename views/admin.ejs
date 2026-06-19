@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %> | Administration details</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <% const values = typeof form !== 'undefined' ? form : {}; %>
+    <% const messageText = typeof message !== 'undefined' ? message : ''; %>
+    <main class="page-shell">
+      <section class="hero">
+        <div class="brand">
+          <div class="brand-icon">S</div>
+          <div>
+            <h1><%= title %></h1>
+            <p><%= subtitle %></p>
+          </div>
+        </div>
+
+        <div class="step-indicator">
+          <span class="step-dot completed"></span>
+          <span class="step-dot completed"></span>
+          <span class="step-dot active"></span>
+          <span class="step-dot"></span>
+          <p>3 of 4</p>
+        </div>
+      </section>
+
+      <section class="form-card">
+        <div class="card-header">
+          <a class="back-link" href="/">← back</a>
+          <span class="role-pill">Administrator</span>
+        </div>
+
+        <h2 class="section-title">Administration details</h2>
+        <p class="hint">all fields marked * are compulsory</p>
+
+        <% if (messageText) { %>
+          <div class="alert"><%= messageText %></div>
+        <% } %>
+
+        <form action="/admin" method="post" class="grid-form">
+          <div class="field-block">
+            <label for="employeeId">Employee ID *</label>
+            <input id="employeeId" name="employeeId" type="text" placeholder="XXX-YYY-ZZZ" value="<%= values.employeeId || '' %>" required />
+          </div>
+
+          <div class="field-block">
+            <label for="department">Department *</label>
+            <select id="department" name="department" required>
+              <option value="" disabled selected>Select a department</option>
+              <option value="academic" <%= values.department === 'academic' ? 'selected' : '' %>>Academic</option>
+              <option value="finance" <%= values.department === 'finance' ? 'selected' : '' %>>Finance</option>
+              <option value="operations" <%= values.department === 'operations' ? 'selected' : '' %>>Operations</option>
+              <option value="admissions" <%= values.department === 'admissions' ? 'selected' : '' %>>Admissions</option>
+            </select>
+          </div>
+
+          <div class="field-block">
+            <label for="accessLevel">Access level *</label>
+            <select id="accessLevel" name="accessLevel" required>
+              <option value="" disabled selected>Select level</option>
+              <option value="level1" <%= values.accessLevel === 'level1' ? 'selected' : '' %>>Level 1</option>
+              <option value="level2" <%= values.accessLevel === 'level2' ? 'selected' : '' %>>Level 2</option>
+              <option value="level3" <%= values.accessLevel === 'level3' ? 'selected' : '' %>>Level 3</option>
+              <option value="admin" <%= values.accessLevel === 'admin' ? 'selected' : '' %>>Admin</option>
+            </select>
+          </div>
+
+          <div class="field-block">
+            <label for="position">Position *</label>
+            <input id="position" name="position" type="text" placeholder="eg Vice principal" value="<%= values.position || '' %>" required />
+          </div>
+
+          <div class="form-actions admin-actions">
+            <a class="button secondary-button" href="/">back</a>
+            <button type="submit">Continue</button>
+          </div>
+        </form>
+
+        <p class="signin-prompt">already have an account? <a href="#">sign in here</a></p>
+      </section>
+    </main>
+  </body>
+</html>

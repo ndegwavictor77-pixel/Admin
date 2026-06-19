@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %> | Registration</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <% const values = typeof form !== 'undefined' ? form : {}; %>
+    <% const messageText = typeof message !== 'undefined' ? message : ''; %>
+    <main class="page-shell">
+      <section class="hero">
+        <div class="brand">
+          <div class="brand-icon">S</div>
+          <div>
+            <h1><%= title %></h1>
+            <p><%= subtitle %></p>
+          </div>
+        </div>
+
+        <div class="step-indicator">
+          <span class="step-dot completed"></span>
+          <span class="step-dot active"></span>
+          <span class="step-dot"></span>
+          <span class="step-dot"></span>
+          <p>2 of 4</p>
+        </div>
+      </section>
+
+      <section class="form-card">
+        <div class="card-header">
+          <a class="back-link" href="#">← back</a>
+          <span class="role-pill">Administrator</span>
+        </div>
+
+        <h2 class="section-title">personal information</h2>
+        <p class="hint">all fields marked * are compulsory</p>
+
+        <% if (messageText) { %>
+          <div class="alert"><%= messageText %></div>
+        <% } %>
+
+        <form action="/register" method="post" class="grid-form">
+          <div class="field-block">
+            <label for="firstName">First Name *</label>
+            <input id="firstName" name="firstName" type="text" placeholder="enter your first name" value="<%= values.firstName || '' %>" required />
+          </div>
+
+          <div class="field-block">
+            <label for="secondName">second name *</label>
+            <input id="secondName" name="secondName" type="text" placeholder="enter your second name" value="<%= values.secondName || '' %>" required />
+          </div>
+
+          <div class="field-block">
+            <label for="email">Email Address *</label>
+            <input id="email" name="email" type="email" placeholder="enter your email address" value="<%= values.email || '' %>" required />
+          </div>
+
+          <div class="field-block">
+            <label for="phone">Phone Number *</label>
+            <input id="phone" name="phone" type="tel" placeholder="eg +254712345462" value="<%= values.phone || '' %>" required />
+          </div>
+
+          <div class="field-block">
+            <label for="password">Password *</label>
+            <input id="password" name="password" type="password" placeholder="enter your password" required />
+          </div>
+
+          <div class="field-block">
+            <label for="confirmPassword">Confirm Password *</label>
+            <input id="confirmPassword" name="confirmPassword" type="password" placeholder="confirm your password" required />
+          </div>
+
+          <div class="field-block full-width">
+            <label for="dob">DOB</label>
+            <input id="dob" name="dob" type="text" placeholder="dd/mm/yyyy" value="<%= values.dob || '' %>" />
+          </div>
+
+          <div class="form-actions">
+            <button type="submit">Continue</button>
+          </div>
+        </form>
+
+        <p class="signin-prompt">already have an account? <a href="#">sign in here</a></p>
+      </section>
+    </main>
+  </body>
+</html>

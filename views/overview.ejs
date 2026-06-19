@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %> | Overview</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="dashboard-shell">
+      <aside class="sidebar">
+        <div class="sidebar-brand">
+          <div class="brand-icon">S</div>
+          <span>SmartAdmin</span>
+        </div>
+
+        <div class="sidebar-profile">
+          <div class="profile-avatar">U</div>
+          <div>
+            <p class="profile-name">User</p>
+            <p class="profile-role">administrator</p>
+          </div>
+        </div>
+
+        <nav class="sidebar-nav">
+          <a class="nav-link active" href="#">overview</a>
+          <a class="nav-link" href="#">user management</a>
+          <a class="nav-link" href="#">resource sharing</a>
+          <a class="nav-link" href="#">analytics</a>
+          <a class="nav-link" href="#">scheduling</a>
+          <a class="nav-link" href="#">fee management</a>
+          <a class="nav-link" href="#">reports</a>
+        </nav>
+      </aside>
+
+      <section class="dashboard-main">
+        <header class="topbar">
+          <div class="topbar-title">Overview</div>
+          <button class="search-button">🔍</button>
+        </header>
+
+        <div class="stats-grid">
+          <article class="stat-card highlight-card">
+            <p class="stat-label">TOTAL STUDENTS</p>
+            <p class="stat-value">1500</p>
+            <p class="stat-meta">+30 this term</p>
+          </article>
+
+          <article class="stat-card">
+            <p class="stat-icon">👥</p>
+            <p class="stat-value">92</p>
+            <p class="stat-meta">64 teachers · 28 staff</p>
+          </article>
+
+          <article class="stat-card secondary-card">
+            <p class="stat-label">REGISTERED PARENTS</p>
+            <p class="stat-value">1900</p>
+            <p class="stat-meta">+45 this month</p>
+          </article>
+
+          <article class="stat-card attendance-card">
+            <p class="stat-label">ATTENDANCE</p>
+            <p class="stat-value">92.8%</p>
+            <p class="stat-meta">5% decrease</p>
+          </article>
+        </div>
+
+        <div class="charts-grid">
+          <article class="chart-card enroll-card">
+            <div class="chart-title">ENROLLMENTS PER LEVEL</div>
+            <div class="bar-chart">
+              <div class="bar large"><span>1</span></div>
+              <div class="bar medium"><span>2</span></div>
+              <div class="bar tall"><span>3</span></div>
+              <div class="bar medium"><span>4</span></div>
+              <div class="bar small"><span>5</span></div>
+            </div>
+          </article>
+
+          <article class="chart-card fee-card">
+            <div class="chart-title">FEE PAYMENT</div>
+            <div class="line-graph">
+              <div class="line-dot" style="left: 5%"></div>
+              <div class="line-dot" style="left: 18%"></div>
+              <div class="line-dot" style="left: 32%"></div>
+              <div class="line-dot" style="left: 47%"></div>
+              <div class="line-dot" style="left: 62%"></div>
+              <div class="line-dot" style="left: 78%"></div>
+              <div class="line-dot" style="left: 92%"></div>
+            </div>
+          </article>
+        </div>
+
+        <article class="activity-card">
+          <div class="activity-header">
+            <h2>RECENT SYSTEM ACTIVITIES</h2>
+            <a href="#">view all</a>
+          </div>
+          <ul class="activity-list">
+            <li><span class="activity-dot green"></span>New student registration: Tom Frank (Form 3) <span>2 minutes</span></li>
+            <li><span class="activity-dot blue"></span>Staff leave requested: Richard Nixon (driver) <span>15 minutes</span></li>
+            <li><span class="activity-dot yellow"></span>Parent sent a message: Alex Sanchez (Harry's parent) <span>2 seconds</span></li>
+            <li><span class="activity-dot teal"></span>Exam timetable uploaded <span>4 days</span></li>
+          </ul>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>
